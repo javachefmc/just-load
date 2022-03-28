@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "justload",
+  "version": "${version}",
+  "name": "Justload",
+  "description": "Loads Minecraft straight into a singleplayer world.",
+  "authors": [
+    "TrufflezMC"
+  ],
+  "contact": {
+    "website": "https://github.com/trufflezmc/just-load/",
+    "repo": "https://github.com/trufflezmc/just-load/"
+  },
+  "license": "LGPL-3.0",
+  "icon": "assets/justload/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "trufflez.justload.client.JustLoadClient"
+    ],
+    "main": [
+      "trufflez.justload.JustLoad"
+    ]
+  },
+  "mixins": [
+    "justload.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "minecraft": "1.18.2"
+  }
+}
