@@ -10,7 +10,7 @@ import trufflez.justload.client.JustLoadClient;
 @Mixin(Minecraft.class)
 public class JustLoadEntrypoint {
     
-    @Inject(at = @At("TAIL"), method = "<init>()V")
+    @Inject(at = @At("TAIL"), method = "<init>")
     public void init(CallbackInfo ci) {
         JustLoadClient.init();
     }
