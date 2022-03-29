@@ -120,3 +120,5 @@ run/
 # my stuff
 branding/
 scripts/
+*.psd
+*.kra
