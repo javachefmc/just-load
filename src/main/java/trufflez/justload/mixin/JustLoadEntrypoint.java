@@ -12,7 +12,6 @@ public class JustLoadEntrypoint {
     
     @Inject(at = @At("TAIL"), method = "<init>()V")
     public void init(CallbackInfo ci) {
-        JustLoadClient.LOGGER.info("Mixin injected into Minecraft");
         JustLoadClient.init();
     }
 }

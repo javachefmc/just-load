@@ -17,9 +17,6 @@
   "entrypoints": {
     "client": [
       "trufflez.justload.client.JustLoadClient"
-    ],
-    "main": [
-      "trufflez.justload.JustLoad"
     ]
   },
   "mixins": [
