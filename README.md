@@ -4,7 +4,11 @@
 
 - Useful for mapmakers, datapack authors, and mod developers who want to save time when testing and debugging.
 - Loads the last world by default, but a specific world can be chosen in the config file.
-- **Highly recommended to install [SkipTransitions](https://github.com/trufflezmc/skip-transitions)** to remove the logo fade out while starting the game.
+- **Highly recommended to also install [LazyDFU](https://modrinth.com/mod/lazydfu) and [SkipTransitions](https://modrinth.com/mod/skip-transitions)**.
+
+Here's what starting up the game looks like: (LazyDFU installed)
+
+![Just Load working](https://i.ibb.co/R4qkCz6/justload-comp.webp)
 
 ### Notice:
 
