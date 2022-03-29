@@ -8,4 +8,9 @@
 
 ### Notice:
 
-Just Load currently does not check for version incompatibility, level corruption, nor makes backups like Minecraft normally does. Proceed at your own risk!
+Just Load currently does not check for version incompatibility nor level corruption, and does not make backups like Minecraft normally does. Proceed at your own risk!
+
+### Links
+
+- Modrinth: https://modrinth.com/mod/just-load
+- CurseForge: https://www.curseforge.com/minecraft/mc-mods/just-load
