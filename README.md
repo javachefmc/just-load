@@ -1,5 +1,7 @@
 # Just Load
 
+KNOWN ISSUES: With multiple saves, topmost world by alphabetical order loads instead of last played world. For the time being, please use config to specify world.
+
 ### **Skips the title screen entirely and loads straight into singleplayer.**
 
 - Useful for mapmakers, datapack authors, and mod developers who want to save time when testing and debugging.
