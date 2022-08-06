@@ -1,16 +1,32 @@
 package trufflez.justload.client;
 
+import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.Lifecycle;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.mixin.resource.loader.client.CreateWorldScreenMixin;
+import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.worldselection.CreateWorldScreen;
+import net.minecraft.client.gui.screens.CreateBuffetWorldScreen;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.WinScreen;
+import net.minecraft.client.gui.screens.worldselection.*;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.server.WorldLoader;
+import net.minecraft.world.level.DataPackConfig;
+import net.minecraft.world.level.levelgen.WorldGenSettings;
+import net.minecraft.world.level.levelgen.presets.WorldPresets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import trufflez.justload.config.Configs;
 
 import java.io.File;
 import java.nio.file.Path;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.OptionalLong;
+import java.util.concurrent.CompletableFuture;
 
 @Environment(EnvType.CLIENT)
 public class JustLoadClient implements ClientModInitializer {
@@ -117,8 +133,11 @@ public class JustLoadClient implements ClientModInitializer {
             LOGGER.info("No worlds found.");
             if(Configs.CREATE_WORLD_IF_NONE) {
                 LOGGER.info("Redirecting to world creation screen.");
-                
-                minecraft.setScreen(CreateWorldScreen.createFresh(minecraft.screen));
+
+                // MC 1.19: This behavior assumes Minecraft will automatically redirect to world creation screen. If we managed to "miss" a valid world, this method will fail and the loading process will be stopped on the world selection screen
+                assert minecraft.screen != null;
+                minecraft.setScreen(new SelectWorldScreen(minecraft.screen));
+                //minecraft.setScreen(CreateWorldScreen.createFresh(minecraft.screen));
                 
             } else {
 
@@ -144,6 +163,7 @@ public class JustLoadClient implements ClientModInitializer {
         
         // TODO: protect this method call a little bit more. See my blurb above
         
-        minecraft.loadLevel(filename);
+        minecraft.createWorldOpenFlows().loadLevel(minecraft.screen, filename);
+        //minecraft.loadLevel(filename);
     }
 }
